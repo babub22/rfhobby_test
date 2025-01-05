@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Layout</title>
+    <style>
+        body{background-color:#ccc5b9}.main-wrapper{font-family:Arial,sans-serif;margin:0 auto;padding:0;background-color:#fffcf2;color:#000;width:1000px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
+		.container{display:grid;grid-template-columns:2fr 1fr;gap:10px;max-width:1200px;margin:20px;margin-left:0;margin-right:0}
+		.main-article{position:relative}.side-articles{display:grid;grid-template-rows:repeat(3,1fr);gap:10px}.article{position:relative;overflow:hidden;border:1px solid #ddd;border-radius:5px;transition:transform .3s ease,box-shadow .3s ease}.article:hover{transform:scale(1.02);box-shadow:0 8px 15px rgba(0,0,0,.2)}.article img{width:100%;height:auto}.article-overlay{position:absolute;bottom:0;left:0;width:100%;background:#403d39;color:#fff;padding-left:10px;padding-right:10px;font-size:16px}.image-container{width:100#;height:auto;background-image:url(image.jpg);background-size:cover;background-position:center}.badge{position:absolute;top:10px;left:10px;background-color:red;color:#fff;padding:5px 10px;font-size:14px;font-weight:700;border-radius:3px}.badge.premium{background-color:gold;color:#000}.section{margin-top:20px}.article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.report-article-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.report-article{position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;padding-bottom:10px}.report-article img{width:100%;height:auto;border-bottom:1px solid #ddd}.report-article-overlay{position:absolute;bottom:0;left:0;width:100%;background:#403d39;color:#fff;padding:7px;font-size:15px}.report-article-text{margin:10px 15px 0;font-size:14px;color:#555;text-align:center}.report-badge{position:absolute;top:10px;left:10px;background-color:red;color:#fff;padding:5px 10px;font-size:14px;font-weight:700;border-radius:3px}.report-section{display:flex;flex-direction:column;padding:40px;font-family:Arial,sans-serif}.report-main-content{display:flex;gap:20px;align-items:flex-start}.report-articles{flex:2.5;display:flex;flex-direction:column;gap:20px}.report-article{display:flex;align-items:flex-start;margin:0 0;padding:10px}.report-article img{padding-right:10px}.report-article img{width:10;height:auto;object-fit:cover;border-bottom:1px solid #ddd;width:100%;display:block}.report-badge{display:inline-block;background-color:#000;color:#fff;padding:5px 10px;font-size:12px;margin-top:10px;border-radius:3px}.report-article h3{margin:10px 0;font-size:18px}.report-article-meta{font-size:10px;color:gray;margin-bottom:10px}.report-article-text{text-align:left;margin-left:0;margin-right:0;font-size:15px;padding-bottom:10px}.report-button{display:inline-block;color:#000;border:1px solid #000;padding:10px 15px;font-size:14px;text-decoration:none;border-radius:3px;transition:background-color .3s ease,color .3s ease}.report-button:hover{background-color:#000;color:#fff}.report-sidebar{flex:1;position:sticky;top:20px;height:fit-content}.report-sidebar h4{margin-bottom:10px;font-size:18px}.report-sidebar-list{list-style:none;padding:0;margin:0;gap:10px}.report-sidebar-list a{text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:10px;margin-bottom:15px;border-bottom:1px solid #ccc;padding-bottom:10px}.report-sidebar-list img{width:60px;height:60px;border-radius:3px;object-fit:cover}.report-sidebar-list p{font-size:14px;margin-top:0;text-decoration:none}.report-sidebar-meta{font-size:12px;color:gray}.container-last{max-width:1200px;margin:0 auto;padding:20px}.table-last{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:10px}.cell-last{display:flex;flex-direction:rows;padding:10px;text-decoration:none}.cell-last img{width:180px;height:120px;object-fit:cover;margin-bottom:15px;padding-right:15px}.table-last a{color:inherit}.title-last{font-weight:700;padding-bottom:10px;text-align:left}.part-last{font-size:12px;text-align:left}.navbar{display:flex;justify-content:space-between;align-items:center;background-color:#403d39;width:100%}.nav-links{display:flex;gap:20px}.nav-links li{display:inline;padding-right:15px}.nav-links a{text-decoration:none;color:#fff;font-size:16px;padding:10px 15px}.nav-links a:hover{background-color:#575757;border-radius:5px}.hamburger{display:none;color:#fff;font-size:30px;cursor:pointer}@media screen and (max-width:768px){.nav-links{display:none;width:100%;text-align:center;margin-top:20px}.nav-links li{margin-bottom:10px}.hamburger{display:block}.navbar{flex-direction:column;align-items:flex-start}}.container-last{border-top:2px solid #ddd}
+		.site-divider { 
+		
+		}
+	</style>
+</head>
+<body>
+<div class="main-wrapper">
+
+  <nav class="navbar">
+    <div class="hamburger" id="hamburger">
+      &#9776;
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#">Neobjasněné</a></li>
+      <li><a href="#">Události</a></li>
+      <li><a href="#">Záhady</a></li>
+      <li><a href="#">Historie</a></li>
+      <li><a href="#">Reportáže</a></li>
+      <li><a href="#">Okultismus</a></li>
+      <li><a href="#">Zázraky</a></li>
+    </ul>
+  </nav>
+
+<div class="container">
+    <!-- Main Article -->
+    <div class="main-article article">
+        <img src="https://via.placeholder.com/400x400" alt="Main Article">
+        <div class="badge">NEOBJASNĚNÉ UDÁLOSTI</div>
+        <div class="article-overlay">
+            <h2>Tajemná Nakassie: Co víme o příšeře z japonského jezera Nakaumi?</h2>
+        </div>
+    </div>
+
+    <!-- Side Articles -->
+    <div class="side-articles">
+        <div class="article">
+            <img src="https://via.placeholder.com/300x200" alt="Side Article 1">
+            <div class="badge premium">PREMIUM</div>
+            <div class="article-overlay">
+                <h3>Magické místo: Taková je Andělská hora. Proudí tudy léčivá energie?</h3>
+            </div>
+        </div>
+
+        <div class="article">
+            <img src="https://via.placeholder.com/300x200" alt="Side Article 2">
+            <div class="badge">ZÁHADY HISTORIE</div>
+            <div class="article-overlay">
+                <h3>Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</h3>
+            </div>
+        </div>
+
+        <div class="article">
+            <img src="https://via.placeholder.com/300x200" alt="Side Article 3">
+            <div class="badge premium">PREMIUM</div>
+            <div class="article-overlay">
+                <h3>Prokletá místa Japonska: nejděsivější a nejtajemnější.</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="section">
+    <h2 class="site-divider">Reportáže</h2>
+    <div class="article-grid">
+		<div class="article">
+            <img src="https://via.placeholder.com/300x200" alt="Report Article 3">
+            <div class="badge">REPORTÁŽ</div>
+            <div class="article-overlay">
+                <h3>Výprava za polární září</h3>
+            </div>
+        </div>
+		
+		<div class="article">
+            <img src="https://via.placeholder.com/300x200" alt="Report Article 3">
+            <div class="badge">REPORTÁŽ</div>
+            <div class="article-overlay">
+                <h3>Výprava za polární září</h3>
+            </div>
+        </div>
+		
+		<div class="article">
+            <img src="https://via.placeholder.com/300x200" alt="Report Article 3">
+            <div class="badge">REPORTÁŽ</div>
+            <div class="article-overlay">
+                <h3>Výprava za polární září</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2 class="site-divider">Reportáže</h2>
+    <div class="article-grid">
+		<div class="article">
+            <img src="https://via.placeholder.com/300x200" alt="Report Article 3">
+            <div class="badge">REPORTÁŽ</div>
+            <div class="article-overlay">
+                <h3>Výprava za polární září</h3>
+            </div>
+        </div>
+		
+		<div class="article">
+            <img src="https://via.placeholder.com/300x200" alt="Report Article 3">
+            <div class="badge">REPORTÁŽ</div>
+            <div class="article-overlay">
+                <h3>Výprava za polární září</h3>
+            </div>
+        </div>
+		
+		<div class="article">
+            <img src="https://via.placeholder.com/300x200" alt="Report Article 3">
+            <div class="badge">REPORTÁŽ</div>
+            <div class="article-overlay">
+                <h3>Výprava za polární září</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="section report-section">
+    <div class="report-main-content">
+        <!-- Left Side: Articles -->
+        <div class="report-articles">
+
+            <div class="report-article">
+                <img src="https://via.placeholder.com/300x200" alt="Novinky">
+                <div class="report-badge">NOVINKY</div>
+				<div>
+					<h3>Nový Svět na dlani Speciál 1/2025 právě v prodeji!</h3>
+					<p class="report-article-meta"> MARTIN MACOUREK &bullet; 23.12.2024</p>
+					<p class="report-article-text">
+						Vydejte se s námi na fascinující cestu do zákulisí životů nejvýznamnějších osobností dějin dávných i nedávných. Nejnovější vydání Světa na dlani...
+					</p>
+					<a href="#" class="report-button">ZOBRAZIT VÍCE</a>
+				</div>
+            </div>
+
+            <div class="report-article">
+                <img src="https://via.placeholder.com/300x200" alt="Novinky">
+                <div class="report-badge">NOVINKY</div>
+				<div>
+					<h3>Nový Svět na dlani Speciál 1/2025 právě v prodeji!</h3>
+					<p class="report-article-meta"> MARTIN MACOUREK &bullet; 23.12.2024</p>
+					<p class="report-article-text">
+						Vydejte se s námi na fascinující cestu do zákulisí životů nejvýznamnějších osobností dějin dávných i nedávných. Nejnovější vydání Světa na dlani...
+					</p>
+					<a href="#" class="report-button">ZOBRAZIT VÍCE</a>
+				</div>
+            </div>
+			
+			<div class="report-article">
+                <img src="https://via.placeholder.com/300x200" alt="Novinky">
+                <div class="report-badge">NOVINKY</div>
+				<div>
+					<h3>Nový Svět na dlani Speciál 1/2025 právě v prodeji!</h3>
+					<p class="report-article-meta"> MARTIN MACOUREK &bullet; 23.12.2024</p>
+					<p class="report-article-text">
+						Vydejte se s námi na fascinující cestu do zákulisí životů nejvýznamnějších osobností dějin dávných i nedávných. Nejnovější vydání Světa na dlani...
+					</p>
+					<a href="#" class="report-button">ZOBRAZIT VÍCE</a>
+				</div>
+            </div>
+			
+			<div class="report-article">
+                <img src="https://via.placeholder.com/300x200" alt="Novinky">
+                <div class="report-badge">NOVINKY</div>
+				<div>
+					<h3>Nový Svět na dlani Speciál 1/2025 právě v prodeji!</h3>
+					<p class="report-article-meta"> MARTIN MACOUREK &bullet; 23.12.2024</p>
+					<p class="report-article-text">
+						Vydejte se s námi na fascinující cestu do zákulisí životů nejvýznamnějších osobností dějin dávných i nedávných. Nejnovější vydání Světa na dlani...
+					</p>
+					<a href="#" class="report-button">ZOBRAZIT VÍCE</a>
+				</div>
+            </div>
+			
+			<div class="report-article">
+                <img src="https://via.placeholder.com/300x200" alt="Novinky">
+                <div class="report-badge">NOVINKY</div>
+				<div>
+					<h3>Nový Svět na dlani Speciál 1/2025 právě v prodeji!</h3>
+					<p class="report-article-meta"> MARTIN MACOUREK &bullet; 23.12.2024</p>
+					<p class="report-article-text">
+						Vydejte se s námi na fascinující cestu do zákulisí životů nejvýznamnějších osobností dějin dávných i nedávných. Nejnovější vydání Světa na dlani...
+					</p>
+					<a href="#" class="report-button">ZOBRAZIT VÍCE</a>
+				</div>
+            </div>
+			
+			<div class="report-article">
+                <img src="https://via.placeholder.com/300x200" alt="Novinky">
+                <div class="report-badge">NOVINKY</div>
+				<div>
+					<h3>Nový Svět na dlani Speciál 1/2025 právě v prodeji!</h3>
+					<p class="report-article-meta"> MARTIN MACOUREK &bullet; 23.12.2024</p>
+					<p class="report-article-text">
+						Vydejte se s námi na fascinující cestu do zákulisí životů nejvýznamnějších osobností dějin dávných i nedávných. Nejnovější vydání Světa na dlani...
+					</p>
+					<a href="#" class="report-button">ZOBRAZIT VÍCE</a>
+				</div>
+            </div>
+        </div>
+
+        <!-- Right Side: Additional Content -->
+        <div class="report-sidebar">
+            <h4>Sidebar</h4>
+            <ul class="report-sidebar-list">
+                <li>
+					<a href="#" >
+						<img src="https://via.placeholder.com/150x100" alt="Je budoucnost vepsaná ve hvězdách?">
+						<div>
+							<p href="#">Je budoucnost vepsaná ve hvězdách?</p>
+							<p class="report-sidebar-meta">26.12.2024 &bullet; 2.8TIS</p>
+						</div>
+					</a>
+				</li>
+                <li>
+					<a href="#" >
+						<img src="https://via.placeholder.com/150x100" alt="Je budoucnost vepsaná ve hvězdách?">
+						<div>
+							<p href="#">Je budoucnost vepsaná ve hvězdách?</p>
+							<p class="report-sidebar-meta">26.12.2024 &bullet; 2.8TIS</p>
+						</div>
+					</a>
+				</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-last">
+  <h2 class="site-divider">Další zajímavé články</h2>
+  <div class="table-last">
+    <a class="cell-last" href="#">
+      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <div class="text-last">
+        <p class="title-last">Článek 1</p>
+        <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
+      </div>
+    </a>
+    <a class="cell-last" href="#">
+      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <div class="text-last">
+        <p class="title-last">Článek 2</p>
+        <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
+      </div>
+    </a>
+    <a class="cell-last" href="#">
+      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <div class="text-last">
+        <p class="title-last">Článek 3</p>
+        <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
+      </div>
+    </a>
+    <a class="cell-last" href="#">
+      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <div class="text-last">
+        <p class="title-last">Článek 4</p>
+        <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
+      </div>
+    </a>
+    <a class="cell-last" href="#">
+      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <div class="text-last">
+        <p class="title-last">Článek 5</p>
+        <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
+      </div>
+    </a>
+    <a class="cell-last" href="#">
+      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <div class="text-last">
+        <p class="title-last">Článek 6</p>
+        <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
+      </div>
+    </a>
+    <a class="cell-last" href="#">
+      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <div class="text-last">
+        <p class="title-last">Článek 7</p>
+        <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
+      </div>
+    </a>
+    <a class="cell-last" href="#">
+      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <div class="text-last">
+        <p class="title-last">Článek 8</p>
+        <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
+      </div>
+    </a>
+    <a class="cell-last" href="#">
+      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <div class="text-last">
+        <p class="title-last">Článek 9</p>
+        <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
+      </div>
+    </a>
+    </a>
+  </div>
+</div>
+
+
+</div>
+</body>
+</html>
