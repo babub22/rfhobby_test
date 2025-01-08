@@ -5,9 +5,454 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article Layout</title>
     <style>
-        body{background-color:#ccc5b9}.main-wrapper{font-family:Arial,sans-serif;margin:0 auto;padding:0;background-color:#fffcf2;color:#000;width:1000px;display:flex;flex-direction:column;align-items:center;min-height:100vh}
-		.container{display:grid;grid-template-columns:2fr 1fr;gap:10px;max-width:1200px;margin:20px;margin-left:0;margin-right:0}
-		.main-article{position:relative}.side-articles{display:grid;grid-template-rows:repeat(3,1fr);gap:10px}.article{position:relative;overflow:hidden;border:1px solid #ddd;border-radius:5px;transition:transform .3s ease,box-shadow .3s ease}.article:hover{transform:scale(1.02);box-shadow:0 8px 15px rgba(0,0,0,.2)}.article img{width:100%;height:auto}.article-overlay{position:absolute;bottom:0;left:0;width:100%;background:#403d39;color:#fff;padding-left:10px;padding-right:10px;font-size:16px}.image-container{width:100#;height:auto;background-image:url(image.jpg);background-size:cover;background-position:center}.badge{position:absolute;top:10px;left:10px;background-color:red;color:#fff;padding:5px 10px;font-size:14px;font-weight:700;border-radius:3px}.badge.premium{background-color:gold;color:#000}.section{margin-top:20px}.article-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.report-article-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.report-article{position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease;padding-bottom:10px}.report-article img{width:100%;height:auto;border-bottom:1px solid #ddd}.report-article-overlay{position:absolute;bottom:0;left:0;width:100%;background:#403d39;color:#fff;padding:7px;font-size:15px}.report-article-text{margin:10px 15px 0;font-size:14px;color:#555;text-align:center}.report-badge{position:absolute;top:10px;left:10px;background-color:red;color:#fff;padding:5px 10px;font-size:14px;font-weight:700;border-radius:3px}.report-section{display:flex;flex-direction:column;padding:40px;font-family:Arial,sans-serif}.report-main-content{display:flex;gap:20px;align-items:flex-start}.report-articles{flex:2.5;display:flex;flex-direction:column;gap:20px}.report-article{display:flex;align-items:flex-start;margin:0 0;padding:10px}.report-article img{padding-right:10px}.report-article img{width:10;height:auto;object-fit:cover;border-bottom:1px solid #ddd;width:100%;display:block}.report-badge{display:inline-block;background-color:#000;color:#fff;padding:5px 10px;font-size:12px;margin-top:10px;border-radius:3px}.report-article h3{margin:10px 0;font-size:18px}.report-article-meta{font-size:10px;color:gray;margin-bottom:10px}.report-article-text{text-align:left;margin-left:0;margin-right:0;font-size:15px;padding-bottom:10px}.report-button{display:inline-block;color:#000;border:1px solid #000;padding:10px 15px;font-size:14px;text-decoration:none;border-radius:3px;transition:background-color .3s ease,color .3s ease}.report-button:hover{background-color:#000;color:#fff}.report-sidebar{flex:1;position:sticky;top:20px;height:fit-content}.report-sidebar h4{margin-bottom:10px;font-size:18px}.report-sidebar-list{list-style:none;padding:0;margin:0;gap:10px}.report-sidebar-list a{text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:10px;margin-bottom:15px;border-bottom:1px solid #ccc;padding-bottom:10px}.report-sidebar-list img{width:60px;height:60px;border-radius:3px;object-fit:cover}.report-sidebar-list p{font-size:14px;margin-top:0;text-decoration:none}.report-sidebar-meta{font-size:12px;color:gray}.container-last{max-width:1200px;margin:0 auto;padding:20px}.table-last{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:10px}.cell-last{display:flex;flex-direction:rows;padding:10px;text-decoration:none}.cell-last img{width:180px;height:120px;object-fit:cover;margin-bottom:15px;padding-right:15px}.table-last a{color:inherit}.title-last{font-weight:700;padding-bottom:10px;text-align:left}.part-last{font-size:12px;text-align:left}.navbar{display:flex;justify-content:space-between;align-items:center;background-color:#403d39;width:100%}.nav-links{display:flex;gap:20px}.nav-links li{display:inline;padding-right:15px}.nav-links a{text-decoration:none;color:#fff;font-size:16px;padding:10px 15px}.nav-links a:hover{background-color:#575757;border-radius:5px}.hamburger{display:block}.navbar{flex-direction:column;align-items:flex-start}}.container-last{border-top:2px solid #ddd}
+        body {
+    background-color: #ccc5b9;
+}
+
+.main-wrapper {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #fffcf2;
+    color: #000;
+    max-width: 1000px;
+	width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; 
+    gap: 10px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%; /* Ensure it takes the full width available */
+    box-sizing: border-box; /* Ensure padding doesn't affect the width */
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+		width: 98%;
+		max-width: none; 
+        padding: 0 10px;
+        box-sizing: border-box;
+        overflow-wrap: break-word;
+    }
+}
+
+
+.main-article {
+    position: relative;
+}
+
+.side-articles {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.article {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.article img {
+    width: 100%;
+    height: 100%;
+	object-fit: cover;
+}
+
+.article-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(64, 61, 57, 0.85);
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.image-container {
+    width: 100%;
+    height: auto;
+    background-image: url(image.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 3px;
+}
+
+.badge.premium {
+    background-color: gold;
+    color: #000;
+}
+
+.section {
+    margin-top: 20px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.article-grid {
+    display: grid;
+	
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+    .article-grid {
+        gap:4px;
+    }
+}
+
+/* For mobile devices with a screen width of 768px or smaller */
+@media screen and (max-width: 600px) {
+    .article-grid {
+        grid-template-columns: 1fr; /* One column for mobile devices */
+    }
+}
+
+
+.report-article {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.report-article-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #403d39;
+    color: #fff;
+    padding: 7px;
+    font-size: 15px;
+}
+
+.report-article-text {
+    margin: 0px 0px 0;
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+}
+
+.report-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 3px;
+}
+
+.report-section {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.report-main-content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.table-last img{
+
+}
+
+.report-articles {
+    order: 1;
+}
+
+.report-sidebar {
+    flex: 1;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+.report-sidebar {
+    order: 2;
+}
+
+@media screen and (max-width: 768px) {
+    .report-main-content {
+        flex-direction: column; 
+    }
+
+    .report-articles {
+        order: 2;
+    }
+
+    .report-sidebar {
+		border-top: 1px solid #ddd;
+        order: 1; 
+		position: static; 
+        top: auto;
+    }
+}
+
+.report-articles {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.report-articles .report-article img {
+    float: left;
+    width:  300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.report-article {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .report-article {
+        flex-direction: column;
+    }
+}
+
+.report-article img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    padding-right: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.report-badge {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+.report-article h3 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.report-article-meta {
+    font-size: 10px;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.report-article-text {
+    text-align: left;
+    font-size: 15px;
+    padding-bottom: 10px;
+}
+
+.report-button {
+    display: inline-block;
+    color: #000;
+    border: 1px solid #000;
+    padding: 10px 15px;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.report-button:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.report-sidebar h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.report-sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 10px;
+}
+
+.report-sidebar-list a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.report-sidebar-list img {
+    width: 60px;
+    height: 60px;
+    border-radius: 3px;
+    object-fit: cover;
+}
+
+.report-sidebar-list p {
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.report-sidebar-meta {
+    font-size: 12px;
+    color: gray;
+}
+
+.container-last {
+    margin: 0 auto;
+    padding: 20px;
+    border-top: 2px solid #ddd;
+}
+
+.table-last {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .table-last {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto; 
+    }
+}
+
+.cell-last {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.cell-last img {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    padding-right: 15px;
+}
+
+.table-last a {
+    color: inherit;
+}
+
+.title-last {
+    font-weight: 700;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.part-last {
+    font-size: 12px;
+    text-align: left;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #403d39;
+    width: 100%;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+    padding-right: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+.nav-links a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+.hamburger {
+    display: none;
+    color: #fff;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 950px) {
+    .nav-links {
+        display: none;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .nav-links li {
+        margin-bottom: 10px;
+    }
+
+    .hamburger {
+        display: block;
+		margin-left:10px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
 
 	</style>
 </head>
@@ -15,7 +460,10 @@
 <div class="main-wrapper">
 
   <nav class="navbar">
-	<ul class="nav-links" id="navLinks">
+    <div class="hamburger" id="hamburger">
+      &#9776;
+    </div>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#">Neobjasněné</a></li>
       <li><a href="#">Události</a></li>
       <li><a href="#">Záhady</a></li>
@@ -27,19 +475,19 @@
   </nav>
 
 <div class="container">
-    <!-- Main Article -->
+    <!-- Main Article 400x400 -->
     <div class="main-article article">
-        <img src="https://via.placeholder.com/400x400" alt="Main Article">
+        <img src="https://enigmaplus.cz/wp-content/uploads/2024/12/byci-skala-768x512.jpg" alt="Main Article">
         <div class="badge">NEOBJASNĚNÉ UDÁLOSTI</div>
         <div class="article-overlay">
             <h2>Tajemná Nakassie: Co víme o příšeře z japonského jezera Nakaumi?</h2>
         </div>
     </div>
 
-    <!-- Side Articles -->
+    <!-- Side Articles 300x200 -->
     <div class="side-articles">
         <div class="article">
-            <img src="https://via.placeholder.com/300x200" alt="Side Article 1">
+            <img src="https://enigmaplus.cz/wp-content/uploads/2025/01/ep-mikulecfoto1-768x384.jpg" alt="Side Article 1">
             <div class="badge premium">PREMIUM</div>
             <div class="article-overlay">
                 <h3>Magické místo: Taková je Andělská hora. Proudí tudy léčivá energie?</h3>
@@ -47,7 +495,7 @@
         </div>
 
         <div class="article">
-            <img src="https://via.placeholder.com/300x200" alt="Side Article 2">
+            <img src="https://enigmaplus.cz/wp-content/uploads/2024/12/1280px-portugal-33276599131-768x433.jpg" alt="Side Article 2">
             <div class="badge">ZÁHADY HISTORIE</div>
             <div class="article-overlay">
                 <h3>Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</h3>
@@ -55,7 +503,7 @@
         </div>
 
         <div class="article">
-            <img src="https://via.placeholder.com/300x200" alt="Side Article 3">
+            <img src="https://enigmaplus.cz/wp-content/uploads/2022/11/101122vystrizek04.jpg" alt="Side Article 3">
             <div class="badge premium">PREMIUM</div>
             <div class="article-overlay">
                 <h3>Prokletá místa Japonska: nejděsivější a nejtajemnější.</h3>
@@ -69,7 +517,7 @@
     <h2 class="site-divider">Reportáže</h2>
     <div class="article-grid">
 		<div class="article">
-            <img src="https://via.placeholder.com/300x200" alt="Report Article 3">
+            <img src="https://enigmaplus.cz/wp-content/uploads/2025/01/hoia-toamna-hoia-forest-autumn-2012-panoramio-768x509.jpg" alt="Report Article 3">
             <div class="badge">REPORTÁŽ</div>
             <div class="article-overlay">
                 <h3>Výprava za polární září</h3>
@@ -77,7 +525,7 @@
         </div>
 		
 		<div class="article">
-            <img src="https://via.placeholder.com/300x200" alt="Report Article 3">
+            <img src="https://enigmaplus.cz/wp-content/uploads/2025/01/130415-g-vv362-801-8660781824-768x511.jpg" alt="Report Article 3">
             <div class="badge">REPORTÁŽ</div>
             <div class="article-overlay">
                 <h3>Výprava za polární září</h3>
@@ -85,7 +533,7 @@
         </div>
 		
 		<div class="article">
-            <img src="https://via.placeholder.com/300x200" alt="Report Article 3">
+            <img src="https://enigmaplus.cz/wp-content/uploads/2024/12/ai-generated-8723798-1280-768x430.png" alt="Report Article 3">
             <div class="badge">REPORTÁŽ</div>
             <div class="article-overlay">
                 <h3>Výprava za polární září</h3>
@@ -98,7 +546,7 @@
     <h2 class="site-divider">Reportáže</h2>
     <div class="article-grid">
 		<div class="article">
-            <img src="https://via.placeholder.com/300x200" alt="Report Article 3">
+            <img src="https://enigmaplus.cz/wp-content/uploads/2023/11/3-7-768x512.jpg" alt="Report Article 3">
             <div class="badge">REPORTÁŽ</div>
             <div class="article-overlay">
                 <h3>Výprava za polární září</h3>
@@ -106,7 +554,7 @@
         </div>
 		
 		<div class="article">
-            <img src="https://via.placeholder.com/300x200" alt="Report Article 3">
+            <img src="https://enigmaplus.cz/wp-content/uploads/2025/01/1-2-768x576.jpg" alt="Report Article 3">
             <div class="badge">REPORTÁŽ</div>
             <div class="article-overlay">
                 <h3>Výprava za polární září</h3>
@@ -114,7 +562,7 @@
         </div>
 		
 		<div class="article">
-            <img src="https://via.placeholder.com/300x200" alt="Report Article 3">
+            <img src="https://enigmaplus.cz/wp-content/uploads/2024/10/gundestrupkedlen-00054-cropped-768x523.jpg" alt="Report Article 3">
             <div class="badge">REPORTÁŽ</div>
             <div class="article-overlay">
                 <h3>Výprava za polární září</h3>
@@ -131,7 +579,7 @@
         <div class="report-articles">
 
             <div class="report-article">
-                <img src="https://via.placeholder.com/300x200" alt="Novinky">
+                <img src="https://enigmaplus.cz/wp-content/uploads/2023/12/old-letters-436502-1920-768x512.jpg" alt="Novinky">
                 <div class="report-badge">NOVINKY</div>
 				<div>
 					<h3>Nový Svět na dlani Speciál 1/2025 právě v prodeji!</h3>
@@ -144,7 +592,7 @@
             </div>
 
             <div class="report-article">
-                <img src="https://via.placeholder.com/300x200" alt="Novinky">
+                <img src="https://enigmaplus.cz/wp-content/uploads/2025/01/1-1-768x512.jpg" alt="Novinky">
                 <div class="report-badge">NOVINKY</div>
 				<div>
 					<h3>Nový Svět na dlani Speciál 1/2025 právě v prodeji!</h3>
@@ -157,7 +605,7 @@
             </div>
 			
 			<div class="report-article">
-                <img src="https://via.placeholder.com/300x200" alt="Novinky">
+                <img src="https://enigmaplus.cz/wp-content/uploads/2025/01/ai-generated-9032013-960-720-768x384.jpg" alt="Novinky">
                 <div class="report-badge">NOVINKY</div>
 				<div>
 					<h3>Nový Svět na dlani Speciál 1/2025 právě v prodeji!</h3>
@@ -170,7 +618,7 @@
             </div>
 			
 			<div class="report-article">
-                <img src="https://via.placeholder.com/300x200" alt="Novinky">
+                <img src="https://enigmaplus.cz/wp-content/uploads/2025/01/1-1-768x512.jpg" alt="Novinky">
                 <div class="report-badge">NOVINKY</div>
 				<div>
 					<h3>Nový Svět na dlani Speciál 1/2025 právě v prodeji!</h3>
@@ -183,7 +631,7 @@
             </div>
 			
 			<div class="report-article">
-                <img src="https://via.placeholder.com/300x200" alt="Novinky">
+                <img src="https://enigmaplus.cz/wp-content/uploads/2025/01/1-1-768x512.jpg" alt="Novinky">
                 <div class="report-badge">NOVINKY</div>
 				<div>
 					<h3>Nový Svět na dlani Speciál 1/2025 právě v prodeji!</h3>
@@ -196,7 +644,7 @@
             </div>
 			
 			<div class="report-article">
-                <img src="https://via.placeholder.com/300x200" alt="Novinky">
+                <img src="https://enigmaplus.cz/wp-content/uploads/2023/12/old-letters-436502-1920-768x512.jpg" alt="Novinky">
                 <div class="report-badge">NOVINKY</div>
 				<div>
 					<h3>Nový Svět na dlani Speciál 1/2025 právě v prodeji!</h3>
@@ -215,7 +663,7 @@
             <ul class="report-sidebar-list">
                 <li>
 					<a href="#" >
-						<img src="https://via.placeholder.com/150x100" alt="Je budoucnost vepsaná ve hvězdách?">
+						<img src="https://enigmaplus.cz/wp-content/uploads/2024/12/1-20-768x576.jpg" alt="Je budoucnost vepsaná ve hvězdách?">
 						<div>
 							<p href="#">Je budoucnost vepsaná ve hvězdách?</p>
 							<p class="report-sidebar-meta">26.12.2024 &bullet; 2.8TIS</p>
@@ -224,7 +672,7 @@
 				</li>
                 <li>
 					<a href="#" >
-						<img src="https://via.placeholder.com/150x100" alt="Je budoucnost vepsaná ve hvězdách?">
+						<img src="https://enigmaplus.cz/wp-content/uploads/2024/12/1-19-768x576.jpg" alt="Je budoucnost vepsaná ve hvězdách?">
 						<div>
 							<p href="#">Je budoucnost vepsaná ve hvězdách?</p>
 							<p class="report-sidebar-meta">26.12.2024 &bullet; 2.8TIS</p>
@@ -240,63 +688,63 @@
   <h2 class="site-divider">Další zajímavé články</h2>
   <div class="table-last">
     <a class="cell-last" href="#">
-      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <img src="https://rfapi.digicon.cz/img/self15/tisicereceptu.cz/10305.jpg" alt="Placeholder Image">
       <div class="text-last">
         <p class="title-last">Článek 1</p>
         <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
       </div>
     </a>
     <a class="cell-last" href="#">
-      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <img src="https://rfapi.digicon.cz/img/self15/epochalnisvet.cz/42966.jpg" alt="Placeholder Image">
       <div class="text-last">
         <p class="title-last">Článek 2</p>
         <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
       </div>
     </a>
     <a class="cell-last" href="#">
-      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <img src="https://rfapi.digicon.cz/img/self15/epochaplus.cz/139341.jpg" alt="Placeholder Image">
       <div class="text-last">
         <p class="title-last">Článek 3</p>
         <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
       </div>
     </a>
     <a class="cell-last" href="#">
-      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <img src="https://rfapi.digicon.cz/img/self15/iluxus.cz/75417.jpg" alt="Placeholder Image">
       <div class="text-last">
         <p class="title-last">Článek 4</p>
         <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
       </div>
     </a>
     <a class="cell-last" href="#">
-      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <img src="https://rfapi.digicon.cz/img/self15/nejsemsama.cz/422038.jpg" alt="Placeholder Image">
       <div class="text-last">
         <p class="title-last">Článek 5</p>
         <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
       </div>
     </a>
     <a class="cell-last" href="#">
-      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <img src="https://rfapi.digicon.cz/img/self15/historyplus.cz/93089.jpg" alt="Placeholder Image">
       <div class="text-last">
         <p class="title-last">Článek 6</p>
         <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
       </div>
     </a>
     <a class="cell-last" href="#">
-      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <img src="https://rfapi.digicon.cz/img/self15/epochanacestach.cz/89296.jpg" alt="Placeholder Image">
       <div class="text-last">
         <p class="title-last">Článek 7</p>
         <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
       </div>
     </a>
     <a class="cell-last" href="#">
-      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <img src="https://rfapi.digicon.cz/img/self15/tisicereceptu.cz/10305.jpg" alt="Placeholder Image">
       <div class="text-last">
         <p class="title-last">Článek 8</p>
         <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
       </div>
     </a>
     <a class="cell-last" href="#">
-      <img src="https://via.placeholder.com/140x100" alt="Placeholder Image">
+      <img src="https://rfapi.digicon.cz/img/self15/rezidenceonline.cz/34448.jpg" alt="Placeholder Image">
       <div class="text-last">
         <p class="title-last">Článek 9</p>
         <p class="part-last">Dvě nejtajemnější pyramidy naší planety: K čemu skutečně sloužily?</p>
