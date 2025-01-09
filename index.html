@@ -433,11 +433,17 @@
 
 @media screen and (max-width: 950px) {
     .nav-links {
-        display: none;
+		flex-direction: column;
         width: 100%;
         text-align: center;
+		padding: 0px;
         margin-top: 20px;
+		display: none;
     }
+	
+	.nav-links.show {
+		display: flex;
+	}
 
     .nav-links li {
         margin-bottom: 10px;
@@ -755,5 +761,15 @@
 
 
 </div>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+</script>
 </body>
+
 </html>
